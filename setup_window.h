@@ -15,9 +15,10 @@
 using namespace Graph_lib;
 class Setup_window :public Simple_window{
 public:
-    Setup_window(Point xy, int w,int h, const string& s): Simple_window(xy,w,h,s){}
+    Setup_window(Point xy, int w,int h, const string& s);
    
 private:
+    Menu diff;
     static void cb_diff2(Address,Address);
     void diff2();
     static void cb_diff3(Address,Address);

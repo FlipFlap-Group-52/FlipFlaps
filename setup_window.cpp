@@ -7,6 +7,21 @@
 //
 
 #include "setup_window.h"
+Setup_window::Setup_window(Point xy,int w,int h,const string& s)
+:Simple_window(xy,w,h,s),
+diff(Point(70,40),70,20,Menu::vertical,"Difficulty")
+{
+    diff.attach(new Button(Point(0,0),0,0,"2",cb_diff2));
+    diff.attach(new Button(Point(0,0),0,0,"3",cb_diff3));
+    diff.attach(new Button(Point(0,0),0,0,"4",cb_diff4));
+    diff.attach(new Button(Point(0,0),0,0,"5",cb_diff5));
+    diff.attach(new Button(Point(0,0),0,0,"6",cb_diff6));
+    diff.attach(new Button(Point(0,0),0,0,"7",cb_diff7));
+    diff.attach(new Button(Point(0,0),0,0,"8",cb_diff8));
+    diff.attach(new Button(Point(0,0),0,0,"9",cb_diff9));
+    attach(diff);
+}
+
 void Setup_window::cb_diff2(Address,Address pw){
     reference_to<Setup_window>(pw).diff2();
 }
