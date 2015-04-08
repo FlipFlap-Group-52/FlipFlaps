@@ -9,7 +9,8 @@
 #include "setup_window.h"
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 :Simple_window(xy,w,h,s),
-diff(Point(70,40),70,20,Menu::vertical,"Difficulty")
+diff(Point(70,40),70,20,Menu::vertical,"Difficulty"),
+title(Point(300,50),"FlipFlaps")
 {
     diff.attach(new Button(Point(0,0),0,0,"2",cb_diff2));
     diff.attach(new Button(Point(0,0),0,0,"3",cb_diff3));
@@ -20,6 +21,10 @@ diff(Point(70,40),70,20,Menu::vertical,"Difficulty")
     diff.attach(new Button(Point(0,0),0,0,"8",cb_diff8));
     diff.attach(new Button(Point(0,0),0,0,"9",cb_diff9));
     attach(diff);
+    title.set_font_size(50);
+    title.set_color(Color::red);
+    attach(title);
+
 }
 
 void Setup_window::cb_diff2(Address,Address pw){

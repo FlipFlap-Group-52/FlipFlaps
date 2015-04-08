@@ -19,6 +19,7 @@ public:
    
 private:
     Menu diff;
+    Text title;
     static void cb_diff2(Address,Address);
     void diff2();
     static void cb_diff3(Address,Address);
