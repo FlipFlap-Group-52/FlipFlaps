@@ -7,6 +7,7 @@
 int main()
 {
 	using namespace Graph_lib;
+    
 	
 	Point tl{100,0};
 	Simple_window win{tl,800,675,"Difficulty"};
@@ -16,7 +17,8 @@ int main()
 	t.set_color(Color::red);
     
     enum difficulty_num {two=2,three,four,five,six,seven,eight,nine};
-    Menu difficulty(Point(310,150),50,50,difficulty_num,"Difficulty");
+    Menu difficulty(Point(310,150),50,50,Menu::vertical,"Difficulty");
+    //difficulty.attach(new Button(Point))
 	
 	
 
