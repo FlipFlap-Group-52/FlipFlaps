@@ -13,7 +13,7 @@
 #include "Simple_window.h"
 #include "Graph.h"
 using namespace Graph_lib;
-class Splash_screen : public Simple_window{
+class Splash_screen : public Graph_lib::Window{
 public:
     Splash_screen(Point xy, int w, int h, const string& s);
     
@@ -21,6 +21,7 @@ private:
     Button play_button;
     Button score_button;
     Button instructions_button;
+    Text title;
     static void cb_play(Address,Address);
     void play();
     static void cb_score(Address,Address);

@@ -13,7 +13,7 @@
 #include "Simple_window.h"
 #include "Graph.h"
 using namespace Graph_lib;
-class Game_window :public Simple_window{
+class Game_window :public Graph_lib::Window{
 public:
     Game_window(Point xy,int w,int h,const string& s);
     

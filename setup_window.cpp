@@ -8,7 +8,7 @@
 
 #include "setup_window.h"
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
-:Simple_window(xy,w,h,s),
+:Window(xy,w,h,s),
 diff(Point(70,40),70,20,Menu::vertical,"Difficulty"),
 title(Point(300,50),"FlipFlaps")
 {

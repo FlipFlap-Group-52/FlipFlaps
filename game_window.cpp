@@ -8,7 +8,7 @@
 
 #include "Game_window.h"
 Game_window::Game_window(Point xy,int w,int h,const string& s)
-:Simple_window(xy,w,h,s),
+:Window(xy,w,h,s),
 ground(Point(0,350),800,325),
 title(Point(310,50),"FlipFlaps"),
 level(Point(550,75),"Level")

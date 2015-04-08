@@ -6,14 +6,14 @@
 #include "setup_window.h"
 #include "Splash_screen.h"
 #include "Game_window.h"
-
+#include "GUI.h"
+using namespace Graph_lib;
 int main()
 {
-	using namespace Graph_lib;
     Splash_screen splash_screen1(Point(100,0),800,675,"Splash Screen");
-    splash_screen1.wait_for_button();
+    return gui_main();
     Setup_window win(Point(100,0),800,675,"Difficulty");
-	win.wait_for_button();
+    return gui_main();
     Game_window game_win(Point(100,0),800,675,"FlipFlap");
-    game_win.wait_for_button();
+    return gui_main();
 }
