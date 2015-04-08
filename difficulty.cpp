@@ -14,6 +14,9 @@ int main()
 	Text t{Point{310,50},"FlipFlaps"};
 	t.set_font_size(50);
 	t.set_color(Color::red);
+    
+    enum difficulty_num {two=2,three,four,five,six,seven,eight,nine};
+    Menu difficulty(Point(310,150),50,50,difficulty_num,"Difficulty");
 	
 	
 
@@ -23,5 +26,6 @@ int main()
 
 
 	win.attach(t);
+    win.attach(difficulty);
 	win.wait_for_button();
 }
