@@ -12,6 +12,7 @@ Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 diff(Point(375,125),70,20,Menu::vertical,"Difficulty"),
 initials(Point(375,100),70,20,"Initals"),
 title(Point(300,50),"FlipFlaps")
+Text word{Point{190,130},"Choose a Difficulty:"}
 {
     diff.attach(new Button(Point(0,0),0,0,"2",
                            [](Address,Address pw){reference_to<Setup_window>(pw).diff2();}));
@@ -34,6 +35,9 @@ title(Point(300,50),"FlipFlaps")
     title.set_font_size(50);
     title.set_color(Color::red);
     attach(title);
+	word.set_font_size(50);
+	word.set_color(Color::blue);
+	win.attach(word);
 }
 void Setup_window::diff2(){
     difficulty = 2;

@@ -22,6 +22,7 @@ public:
 private:
     Menu diff;
     Text title;
+	Text word;
     In_box initials;
     void diff2();
     void diff3();
