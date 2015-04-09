@@ -22,11 +22,8 @@ private:
     Button score_button;
     Button instructions_button;
     Text title;
-    static void cb_play(Address,Address);
     void play();
-    static void cb_score(Address,Address);
     void score();
-    static void cb_instructions(Address,Address);
     void instructions();
     
 };

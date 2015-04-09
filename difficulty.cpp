@@ -12,8 +12,8 @@ int main()
 {
     Splash_screen splash_screen1(Point(100,0),800,675,"Splash Screen");
     return gui_main();
-    Setup_window win(Point(100,0),800,675,"Difficulty");
-    return gui_main();
-    Game_window game_win(Point(100,0),800,675,"FlipFlap");
-    return gui_main();
+    //Setup_window win(Point(100,0),800,675,"Difficulty");
+    //return gui_main();
+    //Game_window game_win(Point(100,0),800,675,"FlipFlap");
+    //return gui_main();
 }
