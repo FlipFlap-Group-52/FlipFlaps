@@ -12,6 +12,9 @@
 #include <stdio.h>
 #include "Simple_window.h"
 #include "Graph.h"
+#include "setup_window.h"
+#include "Pancake.h"
+#include "std_lib_facilities_4.h"
 using namespace Graph_lib;
 class Game_window :public Graph_lib::Window{
 public:

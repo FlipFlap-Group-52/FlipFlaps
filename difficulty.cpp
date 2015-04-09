@@ -10,7 +10,7 @@
 using namespace Graph_lib;
 int main()
 {
-    Splash_screen splash_screen1(Point(100,0),800,700,"Splash Screen");
+    Splash_screen splash_screen1(Point(100,0),800,675,"Splash Screen");
     return gui_main();
     //Setup_window win(Point(100,0),800,675,"Difficulty");
     //return gui_main();

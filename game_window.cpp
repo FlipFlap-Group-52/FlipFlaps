@@ -24,10 +24,13 @@ level(Point(550,75),"Level")
     plate.add(Point(275,600),Point(525,600));
     plate.set_style(Line_style(Line_style::solid, 5));
     attach(plate);
-    spatula.add(Point(0,550));
-    spatula.add(Point(175,550));
-    spatula.add(Point(200,575));
-    spatula.add(Point(550,575));
+    spatula.add(Point(0,570));
+    spatula.add(Point(175,570));
+    spatula.add(Point(200,595));
+    spatula.add(Point(550,595));
     spatula.set_style(Line_style(Line_style::solid, 5));
     attach(spatula);
+    //for (int i=0; i<=difficulty; ++i) {
+       // attach(pancakes[i]);
+    //}
 }
