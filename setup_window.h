@@ -12,14 +12,17 @@
 #include <stdio.h>
 #include "Simple_window.h"
 #include "Graph.h"
+#include "Pancake.h"
 using namespace Graph_lib;
 class Setup_window :public Graph_lib::Window{
 public:
     Setup_window(Point xy, int w,int h, const string& s);
+    int difficulty;
    
 private:
     Menu diff;
     Text title;
+    In_box initials;
     void diff2();
     void diff3();
     void diff4();
@@ -28,6 +31,7 @@ private:
     void diff7();
     void diff8();
     void diff9();
+    void player_initials();
     
 };
 #endif /* defined(____setup_window__) */
