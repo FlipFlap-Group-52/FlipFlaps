@@ -16,7 +16,13 @@ score_button(Point(300,360),90,30,"High Scores",
              [](Address,Address pw){reference_to<Splash_screen>(pw).score();}),
 instructions_button(Point(300,420),90,30,"Instructions",
                     [](Address,Address pw){reference_to<Splash_screen>(pw).instructions();}),
-title(Point(300,50),"FlipFlaps")
+title(Point(330,80),"FlipFlaps")
+team(Point(400,150),"Team 52");
+name1(Point(380,200),"Jordan Blissett");
+name2(Point(380,250),"Dakota Cuttrell");
+name3(Point(375,300),"Benjamin Anderson");
+background(Point(0,0),"pancake1.jpg");
+
 {
     attach(play_button);
     attach(score_button);
@@ -24,6 +30,13 @@ title(Point(300,50),"FlipFlaps")
     title.set_font_size(50);
     title.set_color(Color::red);
     attach(title);
+	attach(background);
+	attach(title);
+	attach(team);
+	attach(name1);
+	attach(name2);
+	attach(name3);
+
 }
 
 

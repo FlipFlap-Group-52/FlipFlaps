@@ -22,6 +22,14 @@ private:
     Button score_button;
     Button instructions_button;
     Text title;
+	Text team;
+    Text name1;
+	Text name2;
+	Text name3;
+	Text button;
+	Rectangle play;
+	Image background;
+
     void play();
     void score();
     void instructions();
