@@ -19,6 +19,12 @@ using namespace Graph_lib;
 class Game_window :public Graph_lib::Window{
 public:
     Game_window(Point xy,int w,int h,const string& s);
+    void set_difficulty(int x){
+        difficulty=x;
+    }
+    void set_initials(string s){
+        initials = s;
+    }
     
 private:
     Rectangle ground;
@@ -26,6 +32,9 @@ private:
     Text level;
     Lines plate;
     Open_polyline spatula;
+    vector<Pancake*> pancakes;
+    int difficulty;
+    string initials;
 };
 
 

@@ -17,13 +17,14 @@ using namespace Graph_lib;
 class Setup_window :public Graph_lib::Window{
 public:
     Setup_window(Point xy, int w,int h, const string& s);
-    int difficulty;
    
 private:
     Menu diff;
     Text title;
 	Text word;
     In_box initials;
+    Button start;
+    int difficulty;
     void diff2();
     void diff3();
     void diff4();
@@ -32,6 +33,7 @@ private:
     void diff7();
     void diff8();
     void diff9();
+    void start_button();
     void player_initials();
     
 };

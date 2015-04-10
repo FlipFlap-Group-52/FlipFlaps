@@ -15,10 +15,11 @@
 using namespace Graph_lib;
 class Pancake :public Rectangle{
 public:
-    Pancake(Point xy,int w,int h,int x);
+    Pancake(Point xy,int w,int h);
+    //Pancake();
     
 private:
-    int w,h;
+
     
 };
 #endif /* defined(____Pancake__) */

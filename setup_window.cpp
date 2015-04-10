@@ -12,7 +12,9 @@ Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 diff(Point(375,125),70,20,Menu::vertical,"Difficulty"),
 initials(Point(375,100),70,20,"Initals"),
 title(Point(300,50),"FlipFlaps")
-Text word{Point{190,130},"Choose a Difficulty:"}
+word{Point{190,130},"Choose a Difficulty:"},
+start(Point(400,250),150,100,"Start",
+      [](Address,Address pw){reference_to<Setup_window>(pw).start_button();})
 {
     diff.attach(new Button(Point(0,0),0,0,"2",
                            [](Address,Address pw){reference_to<Setup_window>(pw).diff2();}));
@@ -38,44 +40,37 @@ Text word{Point{190,130},"Choose a Difficulty:"}
 	word.set_font_size(50);
 	word.set_color(Color::blue);
 	win.attach(word);
+    attach(start);
+    start.hide();
 }
 void Setup_window::diff2(){
     difficulty = 2;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
+    start.show();
 }
 void Setup_window::diff3(){
     difficulty = 3;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff4(){
     difficulty = 4;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff5(){
     difficulty = 5;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff6(){
     difficulty = 6;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff7(){
     difficulty = 7;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff8(){
     difficulty = 8;
-    hide();
-    Pancake(Point(275,570),250,20,difficulty);
 }
 void Setup_window::diff9(){
     difficulty = 9;
+}
+void Setup_window::start_button(){
     hide();
-    Pancake(Point(275,570),250,20,difficulty);
+    Game_window game_win(Point(100,0),800,700,"FlipFlap");
+    game_win.set_difficulty(difficulty);
+    gui_main();
 }
