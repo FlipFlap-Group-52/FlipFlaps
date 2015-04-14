@@ -25,6 +25,24 @@ public:
     void set_initials(string s){
         initials = s;
     }
+    void create_pancake(int x){
+        int height = 570;
+        for (int i=0; i<x; ++i) {
+            pancakes.push_back(new Pancake(Point(275-(15*i),height-(20*i)),250+(30*i),20));
+            height = height-10;
+        }
+        perm_pancake(pancakes);
+         
+    }
+    void perm_pancake(vector<Pancake*> p){
+        random_shuffle(p.begin(),p.end());
+        disp_pancake(p);
+    }
+    void disp_pancake(vector<Pancake*> p){
+        for (int j=0; j<p.size(); ++j) {
+            attach(*p[j]);
+        }
+    }
     
 private:
     Rectangle ground;

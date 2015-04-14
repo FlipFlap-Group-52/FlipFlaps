@@ -14,7 +14,7 @@ title(Point(310,50),"FlipFlaps"),
 level(Point(550,75),"Level")
 {
     ground.set_fill_color(Color::green);
-    attach(ground);
+    //attach(ground);
     title.set_font_size(50);
     title.set_color(Color::red);
     attach(title);
@@ -26,16 +26,10 @@ level(Point(550,75),"Level")
     attach(plate);
     spatula.add(Point(0,570));
     spatula.add(Point(175,570));
-    spatula.add(Point(200,595));
-    spatula.add(Point(550,595));
+    spatula.add(Point(200,594));
+    spatula.add(Point(550,594));
     spatula.set_style(Line_style(Line_style::solid, 5));
     attach(spatula);
-    int height = 570;
-    for (int i=0; i<x; ++i) {
-       pancakes.push_back(new Pancake(Point(275-(20*i),height-(20*i)),250+(40*i),20));
-        height = height-10;
-    }
-    for (int j=0; j<pancakes.size(); ++j) {
-        attach(*pancakes[j]);
-    }
+    create_pancake(x);
+   
 }

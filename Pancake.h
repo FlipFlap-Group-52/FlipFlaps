@@ -16,7 +16,7 @@ using namespace Graph_lib;
 class Pancake :public Rectangle{
 public:
     Pancake(Point xy,int w,int h);
-    //Pancake();
+ 
     
 private:
 
