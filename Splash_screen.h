@@ -26,7 +26,13 @@ private:
     Text name1;
 	Text name2;
 	Text name3;
+	Text play_text;
+	Text score_text;
+	Text instructions_text;
 	Image background;
+	Rectangle play_button_rectangle;
+    Rectangle score_button_rectangle;
+    Rectangle instructions_button_rectangle;
 
     void play();
     void score();
