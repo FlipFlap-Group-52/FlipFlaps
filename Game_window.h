@@ -18,7 +18,7 @@
 using namespace Graph_lib;
 class Game_window :public Graph_lib::Window{
 public:
-    Game_window(Point xy,int w,int h,const string& s);
+    Game_window(Point xy,int w,int h,const string& s,int x);
     void set_difficulty(int x){
         difficulty=x;
     }

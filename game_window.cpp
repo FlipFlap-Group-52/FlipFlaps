@@ -7,7 +7,7 @@
 //
 
 #include "Game_window.h"
-Game_window::Game_window(Point xy,int w,int h,const string& s)
+Game_window::Game_window(Point xy,int w,int h,const string& s,int x)
 :Window(xy,w,h,s),
 ground(Point(0,350),800,325),
 title(Point(310,50),"FlipFlaps"),
@@ -30,10 +30,12 @@ level(Point(550,75),"Level")
     spatula.add(Point(550,595));
     spatula.set_style(Line_style(Line_style::solid, 5));
     attach(spatula);
-    for (int i=0; i<difficulty; ++i) {
-       pancakes.push_back(new Pancake(Point(275-(20*i),570-(20*i)),250+(40*i),20));
+    int height = 570;
+    for (int i=0; i<x; ++i) {
+       pancakes.push_back(new Pancake(Point(275-(20*i),height-(20*i)),250+(40*i),20));
+        height = height-10;
     }
-    for (int j; j<pancakes.size(); ++j) {
+    for (int j=0; j<pancakes.size(); ++j) {
         attach(*pancakes[j]);
     }
 }

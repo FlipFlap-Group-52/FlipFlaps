@@ -13,7 +13,7 @@ diff(Point(375,125),70,20,Menu::vertical,"Difficulty"),
 initials(Point(375,100),70,20,"Initals"),
 title(Point(300,50),"FlipFlaps"),
 word{Point{190,130},"Choose a Difficulty:"},
-start(Point(400,250),150,100,"Start",
+start(Point(300,450),150,100,"Start",
       [](Address,Address pw){reference_to<Setup_window>(pw).start_button();})
 {
     diff.attach(new Button(Point(0,0),0,0,"2",
@@ -49,28 +49,35 @@ void Setup_window::diff2(){
 }
 void Setup_window::diff3(){
     difficulty = 3;
+    start.show();
 }
 void Setup_window::diff4(){
     difficulty = 4;
+    start.show();
 }
 void Setup_window::diff5(){
     difficulty = 5;
+    start.show();
 }
 void Setup_window::diff6(){
     difficulty = 6;
+    start.show();
 }
 void Setup_window::diff7(){
     difficulty = 7;
+    start.show();
 }
 void Setup_window::diff8(){
     difficulty = 8;
+    start.show();
 }
 void Setup_window::diff9(){
     difficulty = 9;
+    start.show();
 }
 void Setup_window::start_button(){
     hide();
-    Game_window game_win(Point(100,0),800,700,"FlipFlap");
-    game_win.set_difficulty(difficulty);
+    Game_window game_win(Point(100,0),800,700,"FlipFlap",difficulty);
+    cout<<"diff: "<<difficulty;
     gui_main();
 }
