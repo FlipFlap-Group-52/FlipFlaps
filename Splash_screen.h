@@ -26,8 +26,6 @@ private:
     Text name1;
 	Text name2;
 	Text name3;
-	Text button;
-	Rectangle play;
 	Image background;
 
     void play();

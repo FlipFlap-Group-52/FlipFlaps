@@ -31,7 +31,7 @@ level(Point(550,75),"Level")
     spatula.set_style(Line_style(Line_style::solid, 5));
     attach(spatula);
     for (int i=0; i<difficulty; ++i) {
-       pancakes.push_back(new Pancake(275-(20*i),570-(20*i)),250+(40*i),20);
+       pancakes.push_back(new Pancake(Point(275-(20*i),570-(20*i)),250+(40*i),20));
     }
     for (int j; j<pancakes.size(); ++j) {
         attach(*pancakes[j]);
