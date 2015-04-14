@@ -35,7 +35,8 @@ public:
          
     }
     void perm_pancake(vector<Pancake*> p){
-        random_shuffle(p.begin(),p.end());
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        shuffle(p.begin(),p.end(),default_random_engine(seed));
         disp_pancake(p);
     }
     void disp_pancake(vector<Pancake*> p){
