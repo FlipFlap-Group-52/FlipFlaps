@@ -9,8 +9,8 @@
 #include "setup_window.h"
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
-diff(Point(375,125),70,20,Menu::vertical,"Difficulty"),
-initials(Point(375,100),70,20,"Initals"),
+diff(Point(375,175),70,20,Menu::vertical,"Difficulty"),
+initials(Point(375,150),70,20,"Initals"),
 title(Point(300,50),"FlipFlaps"),
 word{Point{190,130},"Choose a Difficulty:"},
 start(Point(300,450),150,100,"Start",
