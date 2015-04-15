@@ -42,31 +42,88 @@ public:
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
         shuffle(dummy.begin(),dummy.end(),default_random_engine(seed));
         return dummy;
-        //disp_pancake(p);
     }
     void disp_pancake(){
         for (int j=0; j<pancakes.size(); ++j) {
             attach(*pancakes[j]);
         }
     }
-    void key_press(){
-        
-    }
-    void move_spatula(int movement){
-        spatula_height = spatula_height + movement;
+    int handle(int e) {
+        switch(e)
+        {
+            case FL_FOCUS:
+            case FL_UNFOCUS:
+                return 1;
+            case FL_KEYBOARD:
+                int key = Fl::event_key();
+                if (spatula_level==0) {
+                    switch(key)
+                    {
+                        case FL_Up:
+                            spatula_level=spatula_level + 1;
+                            detach(*spatula);
+                            move_spatula(-30);
+                            redraw();
+                            return 1;
+                    }
+                }
+                if (spatula_level<pancakes.size()-2 && spatula_level>0) {
+                    switch(key)
+                    {
+                        case FL_Up:
+                            spatula_level=spatula_level + 1;
+                            detach(*spatula);
+                            move_spatula(-30);
+                            redraw();
+                            return 1;
+                        case FL_Down:
+                            spatula_level=spatula_level - 1;
+                            detach(*spatula);
+                            move_spatula(30);
+                            redraw();
+                            return 1;
+                    }
+                }
+                if (spatula_level == pancakes.size()-2) {
+                    switch(key)
+                    {
+                        case FL_Down:
+                            spatula_level=spatula_level - 1;
+                            detach(*spatula);
+                            move_spatula(30);
+                            redraw();
+                            return 1;
+                    }
+                }
+            }
     }
     
+    void move_spatula(int movement){
+        spatula_height = spatula_height + movement;
+        create_spatula();
+    }
+    void create_spatula(){
+        spatula = new Open_polyline;
+        spatula->add(Point(0,spatula_height));
+        spatula->add(Point(175,spatula_height));
+        spatula->add(Point(200,spatula_height+24));
+        spatula->add(Point(550,spatula_height+24));
+        spatula->set_color(Color::black);
+        spatula->set_style(Line_style(Line_style::solid, 5));
+        attach(*spatula);
+    }
 private:
     Rectangle ground;
     Text title;
     Text level;
     Lines plate;
-    Open_polyline spatula;
+    Open_polyline* spatula;
     vector<Pancake*> pancakes;
     int difficulty;
     int spatula_height;
     int movement;
     string initials;
+    int spatula_level=0;
 };
 
 
