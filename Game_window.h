@@ -115,6 +115,7 @@ public:
 private:
     Rectangle ground;
     Text title;
+    Button flip_button;
     Text level;
     Lines plate;
     Open_polyline* spatula;
@@ -124,6 +125,7 @@ private:
     int movement;
     string initials;
     int spatula_level=0;
+    void Flip();
 };
 
 

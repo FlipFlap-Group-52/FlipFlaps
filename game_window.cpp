@@ -11,7 +11,9 @@ Game_window::Game_window(Point xy,int w,int h,const string& s,int x)
 :Window(xy,w,h,s),
 ground(Point(0,350),800,325),
 title(Point(310,50),"FlipFlaps"),
-level(Point(550,75),"Level")
+level(Point(550,75),"Level"),
+flip_button(Point(550,400),35,20,"Flip!",
+            [](Address,Address pw){reference_to<Game_window>(pw).Flip();})
 {
     ground.set_fill_color(Color::green);
     //attach(ground);
@@ -21,6 +23,7 @@ level(Point(550,75),"Level")
     level.set_font_size(50);
     level.set_color(Color::red);
     attach(level);
+    attach(flip_button);
     plate.add(Point(275,600),Point(525,600));
     plate.set_style(Line_style(Line_style::solid, 5));
     attach(plate);
@@ -28,4 +31,8 @@ level(Point(550,75),"Level")
     create_spatula();
     create_pancake(x);
    
+}
+
+void Game_window::Flip(){
+    
 }
