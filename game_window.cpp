@@ -28,11 +28,26 @@ flip_button(Point(550,400),35,20,"Flip!",
     plate.set_style(Line_style(Line_style::solid, 5));
     attach(plate);
     spatula_height = 570;
+    set_difficulty(x);
     create_spatula();
-    create_pancake(x);
+    create_pancake(difficulty);
    
 }
 
 void Game_window::Flip(){
+    flip(spatula_level);
+    redraw();
+    game_won = 0;
+    for (int i = 0; i<difficulty; ++i) {
+        //cout << perm[i];
+        if (sorted[i]==perm[i]) {
+            game_won = game_won+1;
+        }
+    }
+    cout<< game_won;
+    if (game_won == difficulty) {
+        cout << " WIN!";
+        hide();
+    }
     
 }

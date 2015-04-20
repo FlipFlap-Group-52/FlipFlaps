@@ -27,7 +27,7 @@ public:
     }
     void create_pancake(int x){
         int height = 570;
-        vector<int> perm = perm_pancake(x);
+        perm = perm_pancake(x);
         for (int i=0; i<x; ++i) {
             pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
             height = height-10;
@@ -35,12 +35,14 @@ public:
         disp_pancake();
     }
     vector<int> perm_pancake(int x){
-        vector<int> dummy;
         for (int i =0; i<x; ++i) {
             dummy.push_back(i);
+            sorted.push_back(i);
         }
         unsigned seed = chrono::system_clock::now().time_since_epoch().count();
         shuffle(dummy.begin(),dummy.end(),default_random_engine(seed));
+        reverse(sorted.begin(),sorted.end());
+        
         return dummy;
     }
     void disp_pancake(){
@@ -56,7 +58,7 @@ public:
                 return 1;
             case FL_KEYBOARD:
                 int key = Fl::event_key();
-                if (spatula_level==0) {
+                if (spatula_level==0 && spatula_level!=pancakes.size()-2) {
                     switch(key)
                     {
                         case FL_Up:
@@ -84,7 +86,7 @@ public:
                             return 1;
                     }
                 }
-                if (spatula_level == pancakes.size()-2) {
+                if (spatula_level == pancakes.size()-2 && spatula_level!=0) {
                     switch(key)
                     {
                         case FL_Down:
@@ -96,6 +98,7 @@ public:
                     }
                 }
             }
+        return Fl_Window::handle(e);
     }
     
     void move_spatula(int movement){
@@ -112,6 +115,19 @@ public:
         spatula->set_style(Line_style(Line_style::solid, 5));
         attach(*spatula);
     }
+    void flip(int pos){
+        for (int j=0; j<pancakes.size(); ++j) {
+            detach(*pancakes[j]);
+        }
+        pancakes.clear();
+        reverse(perm.begin()+pos,perm.end());
+        int height = 570;
+        for (int i=0; i<difficulty; ++i) {
+            pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
+            height = height-10;
+        }
+        disp_pancake();
+    }
 private:
     Rectangle ground;
     Text title;
@@ -120,10 +136,14 @@ private:
     Lines plate;
     Open_polyline* spatula;
     vector<Pancake*> pancakes;
+    vector<int> perm;
+    vector<int> dummy;
+    vector<int> sorted;
     int difficulty;
     int spatula_height;
     int movement;
     string initials;
+    int game_won = 0;
     int spatula_level=0;
     void Flip();
 };
