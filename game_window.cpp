@@ -39,15 +39,15 @@ void Game_window::Flip(){
     redraw();
     game_won = 0;
     for (int i = 0; i<difficulty; ++i) {
-        //cout << perm[i];
         if (sorted[i]==perm[i]) {
             game_won = game_won+1;
         }
     }
     cout<< game_won;
     if (game_won == difficulty) {
-        cout << " WIN!";
         hide();
+        Score_window score_win(Point(100,0),800,700,"FlipFlap");
+        gui_main();
     }
     
 }

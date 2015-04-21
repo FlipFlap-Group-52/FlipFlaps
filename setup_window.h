@@ -14,6 +14,7 @@
 #include "Graph.h"
 #include "Pancake.h"
 #include "Game_window.h"
+#include "Score_window.h"
 using namespace Graph_lib;
 class Setup_window :public Graph_lib::Window{
 public:
