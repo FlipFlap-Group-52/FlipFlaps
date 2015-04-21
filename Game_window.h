@@ -14,6 +14,7 @@
 #include "Graph.h"
 #include "setup_window.h"
 #include "Pancake.h"
+#include "find_solution.h"
 #include "std_lib_facilities_4.h"
 using namespace Graph_lib;
 class Game_window :public Graph_lib::Window{
@@ -28,14 +29,16 @@ public:
     void create_pancake(int x){
         int height = 570;
         perm = perm_pancake(x);
+        solution();
         for (int i=0; i<x; ++i) {
             pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
             height = height-10;
+            //cout<<perm[i];
         }
         disp_pancake();
     }
     vector<int> perm_pancake(int x){
-        for (int i =0; i<x; ++i) {
+        for (int i =1; i<=x; ++i) {
             dummy.push_back(i);
             sorted.push_back(i);
         }
@@ -116,6 +119,8 @@ public:
         attach(*spatula);
     }
     void flip(int pos){
+        solution_score();
+        flip_count = flip_count +1;
         for (int j=0; j<pancakes.size(); ++j) {
             detach(*pancakes[j]);
         }
@@ -126,25 +131,43 @@ public:
             pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
             height = height-10;
         }
+        //solution_score();
         disp_pancake();
+    }
+    void solution(){
+        reverse(perm.begin(),perm.end());
+        solution_vec = find_solution(perm);
+        solution_num = solution_vec->size();
+        cout<<"solution: " <<solution_num<< " ";
+        reverse(perm.begin(),perm.end());
+    }
+    void solution_score(){
+        scoring = (100-10*(flip_count-solution_num))*difficulty;
+        cout<<"score: "<< scoring<< " ";
     }
 private:
     Rectangle ground;
     Text title;
     Button flip_button;
-    Text level;
     Lines plate;
     Open_polyline* spatula;
+    //Out_box level_out;
+    //Text level;
+    //Text diff;
     vector<Pancake*> pancakes;
     vector<int> perm;
     vector<int> dummy;
     vector<int> sorted;
+    vector<int>* solution_vec;
     int difficulty;
     int spatula_height;
     int movement;
     string initials;
     int game_won = 0;
     int spatula_level=0;
+    int flip_count;
+    int scoring;
+    int solution_num;
     void Flip();
 };
 
