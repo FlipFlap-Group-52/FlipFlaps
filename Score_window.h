@@ -16,12 +16,14 @@
 using namespace Graph_lib;
 class Score_window :public Graph_lib::Window{
 public:
-    Score_window(Point xy,int w,int h,const string& s,string r);
+    Score_window(Point xy,int w,int h,const string& s,int x);
     
 private:
     Text title;
-    Text score;
-    Text final_score;
+    Text* score_text;
+    Text* win_lose;
+    Text* final_score;
+    string score;
     Button quit_button;
     Button replay_button;
     void quit();

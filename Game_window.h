@@ -31,7 +31,7 @@ public:
         perm = perm_pancake(x);
         solution();
         for (int i=0; i<x; ++i) {
-            pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
+            pancakes.push_back(new Pancake(Point(300-(15*perm[i]),height-(20*i)),200+(30*perm[i]),20));
             height = height-10;
             //cout<<perm[i];
         }
@@ -111,16 +111,16 @@ public:
     void create_spatula(){
         spatula = new Open_polyline;
         spatula->add(Point(0,spatula_height));
-        spatula->add(Point(175,spatula_height));
-        spatula->add(Point(200,spatula_height+24));
-        spatula->add(Point(550,spatula_height+24));
+        spatula->add(Point(140,spatula_height));
+        spatula->add(Point(165,spatula_height+24));
+        spatula->add(Point(600,spatula_height+24));
         spatula->set_color(Color::black);
         spatula->set_style(Line_style(Line_style::solid, 5));
         attach(*spatula);
     }
     void flip(int pos){
-        solution_score();
         flip_count = flip_count +1;
+        solution_score();
         for (int j=0; j<pancakes.size(); ++j) {
             detach(*pancakes[j]);
         }
@@ -128,7 +128,7 @@ public:
         reverse(perm.begin()+pos,perm.end());
         int height = 570;
         for (int i=0; i<difficulty; ++i) {
-            pancakes.push_back(new Pancake(Point(275-(15*perm[i]),height-(20*i)),250+(30*perm[i]),20));
+            pancakes.push_back(new Pancake(Point(300-(15*perm[i]),height-(20*i)),200+(30*perm[i]),20));
             height = height-10;
         }
         //solution_score();
@@ -138,21 +138,40 @@ public:
         reverse(perm.begin(),perm.end());
         solution_vec = find_solution(perm);
         solution_num = solution_vec->size();
-        cout<<"solution: " <<solution_num<< " ";
+        if (solution_num == 0) {
+            perm_pancake(difficulty);
+            solution();
+        }
+        //cout<<"solution: " <<solution_num<< " ";
         reverse(perm.begin(),perm.end());
     }
     void solution_score(){
+        if (flip_count <= solution_num) {
+            scoring = 100 * difficulty;
+        }
+        else{
         scoring = (100-10*(flip_count-solution_num))*difficulty;
-        cout<<"score: "<< scoring<< " ";
+        //cout<<"score: "<< scoring<< " ";
+        }
+        detach(*score_out);
+        string temp = std::to_string(scoring);
+        score_out = new Text(Point(320,210),temp.c_str());
+        score_out->set_font_size(100);
+        score_out->set_color(Color::red);
+        attach(*score_out);
+        
     }
 private:
-    Rectangle ground;
+    //Rectangle ground;
     Text title;
+    Text score;
     Button flip_button;
     Lines plate;
     Open_polyline* spatula;
-    //Out_box level_out;
-    //Text level;
+    Text* level;
+    Text* score_out;
+    Text* flip_out;
+    Text* done_in_x_flips;
     //Text diff;
     vector<Pancake*> pancakes;
     vector<int> perm;
