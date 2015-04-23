@@ -10,9 +10,13 @@
 #define ____high_score_window__
 
 #include <stdio.h>
+#include "Simple_window.h"
+#include "Graph.h"
 
-#endif /* defined(____high_score_window__) */
 class high_score_window: public Graph_lib::Window{
 public:
-    high_score_window(Point xy,)
-}
+    high_score_window(Point xy, int w,int h, const string& s);
+	
+private:
+};
+#endif /* defined(____high_score_window__) */

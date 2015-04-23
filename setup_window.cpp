@@ -33,6 +33,7 @@ start(Point(300,450),150,100,"Start",
     diff.attach(new Button(Point(0,0),0,0,"9",
                            [](Address,Address pw){reference_to<Setup_window>(pw).diff9();}));
     attach(diff);
+	diff.hide();
     attach(initials);
     title.set_font_size(50);
     title.set_color(Color::red);
@@ -42,21 +43,21 @@ start(Point(300,450),150,100,"Start",
 	attach(word);
     attach(start);
     start.hide();
-	/*if (initials.get_string() != ""){
+	
+	enter_initials = new Text(Point(200,150),"Please enter initials");
+	/*enter_initials.set_font_size(50);
+	enter_initials.set_color(Color::red);
+	
+	have a 'continue' button to the right of initials to allow the player to click the button and continue with choosing difficulty
+	*/
+	attach(*enter_initials);
+	if (initials.get_string() != ""){
 		diff.show();
 	}
-	else{
-		enter_initials = new Text(Point(300,150),"Please enter initials");
-		attach(*enter_initials);
-	}*/
-	while(initials.get_string() ==""){
-	diff.hide();
-	}
-	diff.show();
 }
 void Setup_window::diff2(){
     difficulty = 2;
-    start.show();
+	start.show();
 }
 void Setup_window::diff3(){
     difficulty = 3;
