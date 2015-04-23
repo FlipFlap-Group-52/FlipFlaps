@@ -24,6 +24,7 @@ private:
     Menu diff;
     Text title;
 	Text word;
+	Text* enter_initials;
     In_box initials;
     Button start;
     int difficulty;

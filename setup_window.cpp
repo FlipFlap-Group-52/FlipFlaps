@@ -42,6 +42,17 @@ start(Point(300,450),150,100,"Start",
 	attach(word);
     attach(start);
     start.hide();
+	/*if (initials.get_string() != ""){
+		diff.show();
+	}
+	else{
+		enter_initials = new Text(Point(300,150),"Please enter initials");
+		attach(*enter_initials);
+	}*/
+	while(initials.get_string() ==""){
+	diff.hide();
+	}
+	diff.show();
 }
 void Setup_window::diff2(){
     difficulty = 2;
