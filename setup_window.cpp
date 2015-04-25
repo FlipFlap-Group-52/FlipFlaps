@@ -33,7 +33,7 @@ start(Point(300,450),150,100,"Start",
     diff.attach(new Button(Point(0,0),0,0,"9",
                            [](Address,Address pw){reference_to<Setup_window>(pw).diff9();}));
     attach(diff);
-	diff.hide();
+	//diff.hide();
     attach(initials);
     title.set_font_size(50);
     title.set_color(Color::red);
