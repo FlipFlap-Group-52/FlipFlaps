@@ -11,11 +11,11 @@
 Splash_screen::Splash_screen(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
 background(Point(0,0),"pancake1.jpg"),
-play_button(Point(360,350),90,30,"Play",
+play_button(Point(380,350),90,30,"Play",
             [](Address,Address pw){reference_to<Splash_screen>(pw).play();}),
-score_button(Point(360,410),90,30,"High Scores",
+score_button(Point(380,410),90,30,"High Scores",
              [](Address,Address pw){reference_to<Splash_screen>(pw).score();}),
-instructions_button(Point(360,460),90,30,"Instructions",
+instructions_button(Point(380,470),90,30,"Instructions",
                     [](Address,Address pw){reference_to<Splash_screen>(pw).instructions();}),
 title(Point(330,80),"FlipFlaps"),
 team(Point(400,150),"Team 52"),
@@ -59,5 +59,7 @@ void Splash_screen::score(){
     
 }
 void Splash_screen::instructions(){
-    
+    hide();
+	instructions Instruct_win(Point(100,0),800,675,"Instructions");
+    gui_main();
 }
