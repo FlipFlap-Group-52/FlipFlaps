@@ -18,9 +18,9 @@ public:
     instructions(Point xy, int w, int h, const string& s);
 	
 	private:
-	text Instruct;
-	text Long;
+	Text Instruct;
+	Text Long;
 	
 	
-	
+};
 	#endif /* defined(____instructions__) */
