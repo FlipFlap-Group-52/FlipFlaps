@@ -27,6 +27,7 @@ private:
 	Text* enter_initials;
     In_box initials;
     Button start;
+    Button contin;
     int difficulty;
     void diff2();
     void diff3();
@@ -38,6 +39,7 @@ private:
     void diff9();
     void start_button();
     void player_initials();
+    void continue_button();
     
 };
 #endif /* defined(____setup_window__) */

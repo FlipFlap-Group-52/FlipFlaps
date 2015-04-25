@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Simple_window.h"
 #include "Graph.h"
+#include "Splash_screen.h"
 using namespace Graph_lib;
 class instructions : public Graph_lib::Window{
 public:
@@ -20,6 +21,9 @@ public:
 	private:
 	Text Instruct;
 	Text Long;
+    //added back button
+    Button back_Button;
+    void back();
 	
 	
 };
