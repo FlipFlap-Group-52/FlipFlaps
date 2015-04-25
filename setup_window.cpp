@@ -9,13 +9,13 @@
 #include "setup_window.h"
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
-diff(Point(375,175),70,20,Menu::vertical,"Difficulty"),
-initials(Point(375,150),70,20,"Initals"),
+diff(Point(500,250),125,40,Menu::vertical,"Difficulty"),
+initials(Point(350,175),100,30,"Initals"),
 title(Point(300,50),"FlipFlaps"),
 word{Point{190,130},"Choose a Difficulty:"},
-contin(Point(450,150),70,20,"Continue",
+contin(Point(450,175),100,30,"Continue",
                 [](Address,Address pw){reference_to<Setup_window>(pw).continue_button();}),
-start(Point(300,450),150,100,"Start",
+start(Point(150,325),250,125,"Start",
       [](Address,Address pw){reference_to<Setup_window>(pw).start_button();})
 {
     diff.attach(new Button(Point(0,0),0,0,"2",
@@ -51,7 +51,7 @@ start(Point(300,450),150,100,"Start",
 //added the continue button
 void Setup_window::continue_button(){
     if (initials.get_string() == ""){
-        enter_initials = new Text(Point(200,150),"Please enter initials");
+        enter_initials = new Text(Point(200,200),"Please enter initials");
         enter_initials->set_font_size(50);
         enter_initials->set_color(Color::red);
         attach(*enter_initials);
