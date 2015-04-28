@@ -10,9 +10,9 @@
 Score_window::Score_window(Point xy,int w,int h,const string& s,int x)
 :Window(xy,w,h,s),
 title(Point(310,50),"FlipFlaps"),
-replay_button(Point(550,500),100,50,"Replay",
+replay_button(Point(150,550),100,50,"Replay",
               [](Address,Address pw){reference_to<Score_window>(pw).replay();}),
-quit_button(Point(300,500),100,50,"Quit",
+quit_button(Point(550,550),100,50,"Quit",
             [](Address,Address pw){reference_to<Score_window>(pw).quit();})
 {
     if (x>0) {
@@ -33,7 +33,7 @@ quit_button(Point(300,500),100,50,"Quit",
         attach(*final_score);
     }
     else{
-        win_lose = new Text(Point(250,150),"Game over. Number of flips exceeded.");
+        win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
         win_lose->set_font_size(25);
         win_lose->set_color(Color::red);
         attach(*win_lose);
