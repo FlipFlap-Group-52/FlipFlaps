@@ -31,6 +31,8 @@ quit_button(Point(550,550),100,50,"Quit",
         final_score->set_font_size(100);
         final_score->set_color(Color::blue);
         attach(*final_score);
+        
+        high_score_window::write_score(initials, score);
     }
     else{
         win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
@@ -53,3 +55,6 @@ void Score_window::quit(){
     hide();
     
 }
+
+
+

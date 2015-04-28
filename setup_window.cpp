@@ -57,6 +57,7 @@ void Setup_window::continue_button(){
         attach(*enter_initials);
     }
     else{
+        player = initials.get_string();
         diff.show();
     }
 }
@@ -94,7 +95,7 @@ void Setup_window::diff9(){
 }
 void Setup_window::start_button(){
     hide();
-    Game_window game_win(Point(100,0),800,700,"FlipFlap",difficulty);
+    Game_window game_win(Point(100,0),800,700,"FlipFlap",difficulty,string s);
     cout<<"diff: "<<difficulty;
     gui_main();
 }

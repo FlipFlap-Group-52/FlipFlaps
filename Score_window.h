@@ -13,6 +13,7 @@
 #include "std_lib_facilities_4.h"
 #include "Simple_window.h"
 #include "setup_window.h"
+#include "high_score_window.h"
 using namespace Graph_lib;
 class Score_window :public Graph_lib::Window{
 public:
