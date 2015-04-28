@@ -8,11 +8,10 @@
 
 #include "high_score_window.h"
 
-high_score_window::high_score_window(Point xy,int w,int h,const string& s,int x)
+high_score_window::high_score_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
 title(Point(310,50),"FlipFlaps"),
-the_winners(Point(250,150),"Top 5 Scores"),
-
+the_winners(Point(250,150),"Top 5 Scores")
 {
 
     title.set_font_size(50);
