@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Simple_window.h"
 #include "Graph.h"
+#include "high_score_window.h"
 #include "instructions.h"
 using namespace Graph_lib;
 class Splash_screen : public Graph_lib::Window{

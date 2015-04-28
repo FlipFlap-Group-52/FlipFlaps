@@ -56,7 +56,9 @@ void Splash_screen::play(){
     gui_main();
 }
 void Splash_screen::score(){
-    
+    hide();
+	high_score_window win1(Point(100,0),800,675,"High Scores");
+	gui_main();
 }
 void Splash_screen::instructions_cb(){
     hide();

@@ -9,11 +9,13 @@
 #include "setup_window.h"
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
-diff(Point(375,175),70,20,Menu::vertical,"Difficulty"),
-initials(Point(375,150),70,20,"Initals"),
+diff(Point(500,250),125,40,Menu::vertical,"Difficulty"),
+initials(Point(350,175),100,30,"Initals"),
 title(Point(300,50),"FlipFlaps"),
 word{Point{190,130},"Choose a Difficulty:"},
-start(Point(300,450),150,100,"Start",
+contin(Point(450,175),100,30,"Continue",
+                [](Address,Address pw){reference_to<Setup_window>(pw).continue_button();}),
+start(Point(150,325),250,125,"Start",
       [](Address,Address pw){reference_to<Setup_window>(pw).start_button();})
 {
     diff.attach(new Button(Point(0,0),0,0,"2",
@@ -33,7 +35,8 @@ start(Point(300,450),150,100,"Start",
     diff.attach(new Button(Point(0,0),0,0,"9",
                            [](Address,Address pw){reference_to<Setup_window>(pw).diff9();}));
     attach(diff);
-	//diff.hide();
+	diff.hide();
+    attach(contin);
     attach(initials);
     title.set_font_size(50);
     title.set_color(Color::red);
@@ -44,16 +47,18 @@ start(Point(300,450),150,100,"Start",
     attach(start);
     start.hide();
 	
-	enter_initials = new Text(Point(200,150),"Please enter initials");
-	/*enter_initials.set_font_size(50);
-	enter_initials.set_color(Color::red);
-	
-	have a 'continue' button to the right of initials to allow the player to click the button and continue with choosing difficulty
-	*/
-	attach(*enter_initials);
-	if (initials.get_string() != ""){
-		diff.show();
-	}
+}
+//added the continue button
+void Setup_window::continue_button(){
+    if (initials.get_string() == ""){
+        enter_initials = new Text(Point(200,200),"Please enter initials");
+        enter_initials->set_font_size(50);
+        enter_initials->set_color(Color::red);
+        attach(*enter_initials);
+    }
+    else{
+        diff.show();
+    }
 }
 void Setup_window::diff2(){
     difficulty = 2;
