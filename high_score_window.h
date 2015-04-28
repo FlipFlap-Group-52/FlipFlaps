@@ -2,7 +2,7 @@
 //  high_score_window.h
 //  
 //
-//  Created by Jordan Blissett on 4/23/15.
+//  Created by Dakota Cuttrell on 4/23/15.
 //
 //
 
@@ -15,8 +15,12 @@
 
 class high_score_window: public Graph_lib::Window{
 public:
-    high_score_window(Point xy, int w,int h, const string& s);
+	high_score_window(Point xy, int w,int h, const string& s);
 	
 private:
+	Text title;
+	Text the_winners;
+	
+
 };
 #endif /* defined(____high_score_window__) */
