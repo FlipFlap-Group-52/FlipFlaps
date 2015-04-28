@@ -7,7 +7,7 @@
 //
 
 #include "Game_window.h"
-Game_window::Game_window(Point xy,int w,int h,const string& s,int x)
+Game_window::Game_window(Point xy,int w,int h,const string& s,int x,string a)
 :Window(xy,w,h,s),
 title(Point(310,50),"FlipFlaps"),        //create objects
 score(Point(310,125),"Score"),
@@ -226,7 +226,7 @@ void Game_window::Flip(){
     if (scoring <= 0) {
         //if zero then game is over
         hide();
-        Score_window score_win(Point(100,0),800,700,"FlipFlap",scoring);
+        Score_window score_win(Point(100,0),800,700,"FlipFlap",scoring,initials);
         gui_main();
     }
     game_won = 0;

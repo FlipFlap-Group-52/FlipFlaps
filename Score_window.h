@@ -17,7 +17,7 @@
 using namespace Graph_lib;
 class Score_window :public Graph_lib::Window{
 public:
-    Score_window(Point xy,int w,int h,const string& s,int x);
+    Score_window(Point xy,int w,int h,const string& s,int x,string a);
     
 private:
     Text title;

@@ -20,7 +20,6 @@ public:
 	
 	private:
 	Text Instruct;
-<<<<<<< HEAD
 	Text Long1;
 	Text Long2;
 	Text Long3;
@@ -30,13 +29,9 @@ public:
 	Image behind;
 	Text Back_text;
 	Rectangle Back_box;
-
-=======
-	Text Long;
     //added back button
     Button back_Button;
     void back();
->>>>>>> origin/master
 	
 	
 };

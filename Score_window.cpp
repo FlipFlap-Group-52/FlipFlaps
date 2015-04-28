@@ -7,7 +7,7 @@
 //
 
 #include "Score_window.h"
-Score_window::Score_window(Point xy,int w,int h,const string& s,int x)
+Score_window::Score_window(Point xy,int w,int h,const string& s,int x,string a)
 :Window(xy,w,h,s),
 title(Point(310,50),"FlipFlaps"),
 replay_button(Point(150,550),100,50,"Replay",
@@ -32,7 +32,7 @@ quit_button(Point(550,550),100,50,"Quit",
         final_score->set_color(Color::blue);
         attach(*final_score);
         
-        high_score_window::write_score(initials, score);
+        high_score_window::write_score(a, score);
     }
     else{
         win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
