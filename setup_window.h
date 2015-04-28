@@ -29,6 +29,7 @@ private:
     Button start;
     Button contin;
     int difficulty;
+    string player;
     void diff2();
     void diff3();
     void diff4();

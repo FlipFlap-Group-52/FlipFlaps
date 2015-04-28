@@ -19,7 +19,7 @@
 using namespace Graph_lib;
 class Game_window :public Graph_lib::Window{
 public:
-    Game_window(Point xy,int w,int h,const string& s,int x);
+    Game_window(Point xy,int w,int h,const string& s,int x,string s);
     void set_difficulty(int x);
     void set_initials(string s);
     void create_pancake(int x);

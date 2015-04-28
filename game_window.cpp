@@ -17,7 +17,7 @@ flip_button(Point(650,400),90,45,"Flip!",
     
     flip_count = 0;
     set_difficulty(x);
-    
+    set_initials(s);
     //title Text object
     title.set_font_size(50);
     title.set_color(Color::red);
@@ -238,7 +238,7 @@ void Game_window::Flip(){
     }
     if (game_won == difficulty) {
         hide();
-        Score_window score_win(Point(100,0),800,700,"FlipFlap",scoring);
+        Score_window score_win(Point(100,0),800,700,"FlipFlap",scoring,initials);
         gui_main();
     }
     
