@@ -12,19 +12,22 @@
 #include <stdio.h>
 #include "std_lib_facilities_4.h"
 #include "Simple_window.h"
+#include "Splash_screen.h"
 #include "Graph.h"
 using namespace Graph_lib;
 class high_score_window: public Graph_lib::Window{
 public:
 	high_score_window(Point xy, int w,int h, const string& s);
     
-    void write_score(string s,string t){}
-    void read_score(){}
+    void write_score(string s,string t);
+    void read_score();
 private:
 	Text title;
 	Text the_winners;
     ofstream ofs;
     ifstream ifs;
+	Button back_Button;
+    void back();
 	
 
 };
