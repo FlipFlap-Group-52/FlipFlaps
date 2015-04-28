@@ -20,6 +20,4 @@ the_winners(Point(250,150),"Top 5 Scores")
     the_winners.set_color(Color::blue);
     attach(title);
     attach(the_winners);
-
-
 }
