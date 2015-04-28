@@ -18,9 +18,18 @@ public:
     instructions(Point xy, int w, int h, const string& s);
 	
 	private:
-	text Instruct;
-	text Long;
+	Text Instruct;
+	Text Long1;
+	Text Long2;
+	Text Long3;
+	Text Long4;
+	Text Controls;
+	Text Control_Title;
+	Image behind;
+	Text Back_text;
+	Rectangle Back_box;
+
 	
 	
-	
+};
 	#endif /* defined(____instructions__) */

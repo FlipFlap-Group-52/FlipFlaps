@@ -16,7 +16,7 @@ play_button(Point(380,350),90,30,"Play",
 score_button(Point(380,410),90,30,"High Scores",
              [](Address,Address pw){reference_to<Splash_screen>(pw).score();}),
 instructions_button(Point(380,470),90,30,"Instructions",
-                    [](Address,Address pw){reference_to<Splash_screen>(pw).instructions();}),
+                    [](Address,Address pw){reference_to<Splash_screen>(pw).instructions_cb();}),
 title(Point(330,80),"FlipFlaps"),
 team(Point(400,150),"Team 52"),
 name1(Point(380,200),"Jordan Blissett"),
@@ -58,7 +58,7 @@ void Splash_screen::play(){
 void Splash_screen::score(){
     
 }
-void Splash_screen::instructions(){
+void Splash_screen::instructions_cb(){
     hide();
 	instructions Instruct_win(Point(100,0),800,675,"Instructions");
     gui_main();
