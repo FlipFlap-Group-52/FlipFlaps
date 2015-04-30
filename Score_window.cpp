@@ -31,8 +31,7 @@ quit_button(Point(550,550),100,50,"Quit",
         final_score->set_font_size(100);
         final_score->set_color(Color::blue);
         attach(*final_score);
-        
-        high_score_window::write_score(a, score);
+        write_score(a,score);
     }
     else{
         win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
@@ -54,6 +53,15 @@ void Score_window::replay(){
 void Score_window::quit(){
     hide();
     
+}
+void Score_window::write_score(string initial,string t){
+    ofs.open("Score_file.txt");
+    if (ofs.is_open()) {
+        ofs<< initial << "   " << t;
+        ofs.close();
+    }
+}void Score_window::set_initials(string s){
+    initials = s;
 }
 
 

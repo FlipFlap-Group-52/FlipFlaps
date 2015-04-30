@@ -18,9 +18,12 @@ using namespace Graph_lib;
 class Score_window :public Graph_lib::Window{
 public:
     Score_window(Point xy,int w,int h,const string& s,int x,string a);
-    
+    void write_score(string s,string t);
+    void set_initials(string s);
 private:
     Text title;
+    string initials;
+    ofstream ofs;
     Text* score_text;
     Text* win_lose;
     Text* final_score;

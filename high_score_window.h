@@ -19,7 +19,6 @@ class high_score_window: public Graph_lib::Window{
 public:
 	high_score_window(Point xy, int w,int h, const string& s);
     
-    void write_score(string s,string t);
     void read_score();
 private:
 	Text title;
