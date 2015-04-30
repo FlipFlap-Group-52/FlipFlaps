@@ -99,6 +99,7 @@ vector<int> Game_window::perm_pancake(int x){
 
 void Game_window::disp_pancake(){
     for (int j=0; j<pancakes.size(); ++j) {
+       // pancakes[j]->set_fill_color(Color::brown);
         attach(*pancakes[j]);
     }
 }

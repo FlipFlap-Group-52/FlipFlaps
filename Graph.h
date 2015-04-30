@@ -47,6 +47,7 @@ struct Color {
         dark_blue=FL_DARK_BLUE,
         dark_magenta=FL_DARK_MAGENTA,
         dark_cyan=FL_DARK_CYAN
+        //brown = fl_color(222,184,135)
     };
 
     enum Transparency : unsigned char { invisible = 0, visible=255 };

@@ -18,7 +18,7 @@ Controls(Point(100, 450), "Use the up and down arrows to get to the pancake you 
 Back_box(Point(340,500),90,30),
 Back_text(Point(365,520),"BACK"),
 behind(Point(0,0),"pancake1.jpg"),
-back_Button(Point(300,50),70,35,"Back",
+back_Button(Point(340,500),90,30,"Back",
             [](Address,Address pw){reference_to<instructions>(pw).back();})
 {
 	attach(behind);
