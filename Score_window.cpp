@@ -16,6 +16,7 @@ quit_button(Point(550,550),100,50,"Quit",
             [](Address,Address pw){reference_to<Score_window>(pw).quit();})
 {
     if (x>0) {
+        set_initials(a);
         win_lose = new Text(Point(200,150),"You Won!");
         win_lose->set_font_size(100);
         win_lose->set_color(Color::red);
@@ -31,7 +32,7 @@ quit_button(Point(550,550),100,50,"Quit",
         final_score->set_font_size(100);
         final_score->set_color(Color::blue);
         attach(*final_score);
-        write_score(a,score);
+        write_score(initials,score);
     }
     else{
         win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
@@ -55,9 +56,9 @@ void Score_window::quit(){
     
 }
 void Score_window::write_score(string initial,string t){
-    ofs.open("Score_file.txt");
+    ofs.open("Score_file.txt", std::ios_base::app);
     if (ofs.is_open()) {
-        ofs<< initial << "   " << t;
+        ofs<< initial << "   " << t << "\n";
         ofs.close();
     }
 }void Score_window::set_initials(string s){

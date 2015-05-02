@@ -10,7 +10,7 @@
 Setup_window::Setup_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
 diff(Point(500,250),125,40,Menu::vertical,"Difficulty"),
-initials(Point(350,175),100,30,"Initals"),
+initials(Point(350,175),100,30,"Initials"),
 title(Point(300,50),"FlipFlaps"),
 word{Point{190,130},"Choose a Difficulty:"},
 contin(Point(450,175),100,30,"Continue",
@@ -38,6 +38,11 @@ start(Point(150,325),250,125,"Start",
 	diff.hide();
     attach(contin);
     attach(initials);
+    /*enter_initials = new Text(Point(0,200),"Please enter initials");
+    enter_initials->set_font_size(50);
+    enter_initials->set_color(Color::red);
+    attach(*enter_initials);
+    enter_initials->hide();*/
     title.set_font_size(50);
     title.set_color(Color::red);
     attach(title);
@@ -51,10 +56,7 @@ start(Point(150,325),250,125,"Start",
 //added the continue button
 void Setup_window::continue_button(){
     if (initials.get_string() == ""){
-        enter_initials = new Text(Point(200,200),"Please enter initials");
-        enter_initials->set_font_size(50);
-        enter_initials->set_color(Color::red);
-        attach(*enter_initials);
+       // enter_initials->show();
     }
     else{
         player = initials.get_string();
@@ -96,6 +98,5 @@ void Setup_window::diff9(){
 void Setup_window::start_button(){
     hide();
     Game_window game_win(Point(100,0),800,700,"FlipFlap",difficulty,player);
-    cout<<"diff: "<<difficulty;
     gui_main();
 }

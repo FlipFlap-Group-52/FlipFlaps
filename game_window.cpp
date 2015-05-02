@@ -17,7 +17,7 @@ flip_button(Point(650,400),90,45,"Flip!",
     
     flip_count = 0;
     set_difficulty(x);
-    set_initials(s);
+    set_initials(a);
     //title Text object
     title.set_font_size(50);
     title.set_color(Color::red);
