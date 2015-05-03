@@ -23,6 +23,7 @@ public:
 private:
 	Text title;
 	Text the_winners;
+    vector<Text*> scores;
     ofstream ofs;
     ifstream ifs;
 	Button back_Button;

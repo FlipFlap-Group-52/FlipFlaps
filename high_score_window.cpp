@@ -23,6 +23,7 @@ back_Button(Point(100,50),70,35,"Back",
     attach(title);
     attach(the_winners);
 	attach(back_Button);
+    read_score();
 /*
 vector<int>scores;
 int high_score;
@@ -35,9 +36,18 @@ scores.push_back(high_score);
 
 void high_score_window::read_score(){
     ifs.open("Score_file.txt");
-    if (ifs.is_open()) {
-       
+    string line;
+    for (int i = 0; i<5; i++) {
+        if (ifs.is_open(), std::ios_base::app) {
+            getline(ifs,line);
+            string temp = std::to_string(i+1)+".  "+line;
+            scores.push_back(new Text(Point(275,200+(i*50)),temp));
+            scores[i]->set_font_size(50);
+            scores[i]->set_color(Color::red);
+            attach(*scores[i]);
+        }
     }
+    ifs.close();
 }
 void high_score_window::back(){
     hide();
