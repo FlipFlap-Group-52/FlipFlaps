@@ -20,6 +20,7 @@ public:
     Splash_screen(Point xy, int w, int h, const string& s);
     //Creates what will be placed on the screen.
 private:
+//buttons
     Button play_button;
     Button score_button;
     Button instructions_button;
@@ -35,7 +36,7 @@ private:
 	Rectangle play_button_rectangle;
     Rectangle score_button_rectangle;
     Rectangle instructions_button_rectangle;
-
+//for buttons
     void play();
     void score();
     void instructions_cb();

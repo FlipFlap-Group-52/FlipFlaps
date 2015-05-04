@@ -22,6 +22,7 @@ public:
     void read_score();
     vector<string> sort_scores(vector<string> d,vector<int> x,vector<int> c);
 private:
+//what is used in high score window
 	Text title;
 	Text the_winners;
     vector<Text*> scores;
