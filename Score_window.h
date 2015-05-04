@@ -27,10 +27,12 @@ private:
     Text* score_text;
     Text* win_lose;
     Text* final_score;
-    string score;
+    string score1;
     Button quit_button;
+    Button score_button;
     Button replay_button;
     void quit();
+    void score();
     void replay();
 };
 #endif /* defined(____Score_window__) */

@@ -13,7 +13,9 @@ title(Point(310,50),"FlipFlaps"),
 replay_button(Point(150,550),100,50,"Replay",
               [](Address,Address pw){reference_to<Score_window>(pw).replay();}),
 quit_button(Point(550,550),100,50,"Quit",
-            [](Address,Address pw){reference_to<Score_window>(pw).quit();})
+            [](Address,Address pw){reference_to<Score_window>(pw).quit();}),
+score_button(Point(350,550),100,50,"High Scores",
+             [](Address,Address pw){reference_to<Score_window>(pw).score();})
 {
     if (x>0) {
         set_initials(a);
@@ -27,12 +29,12 @@ quit_button(Point(550,550),100,50,"Quit",
         score_text->set_color(Color::blue);
         attach(*score_text);
         
-        score = std::to_string(x);
-        final_score = new Text(Point(320,340),score.c_str());
+        score1 = std::to_string(x);
+        final_score = new Text(Point(320,340),score1.c_str());
         final_score->set_font_size(100);
         final_score->set_color(Color::blue);
         attach(*final_score);
-        write_score(initials,score);
+        write_score(initials,score1);
     }
     else{
         win_lose = new Text(Point(175,150),"Game over! Number of flips exceeded.");
@@ -44,6 +46,7 @@ quit_button(Point(550,550),100,50,"Quit",
     title.set_color(Color::red);
     attach(title);
     attach(replay_button);
+    attach(score_button);
     attach(quit_button);
 }
 void Score_window::replay(){
@@ -63,6 +66,11 @@ void Score_window::write_score(string initial,string t){
     }
 }void Score_window::set_initials(string s){
     initials = s;
+}
+void Score_window::score(){
+    hide();
+	high_score_window win1(Point(100,0),800,675,"High Scores");
+	gui_main();
 }
 
 
