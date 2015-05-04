@@ -67,11 +67,13 @@ void Score_window::write_score(string initial,string t){
 }void Score_window::set_initials(string s){
     initials = s;
 }
+
 void Score_window::score(){
     hide();
 	high_score_window win1(Point(100,0),800,675,"High Scores");
 	gui_main();
 }
+
 
 
 

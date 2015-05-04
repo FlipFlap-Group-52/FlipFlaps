@@ -20,10 +20,18 @@ public:
 	high_score_window(Point xy, int w,int h, const string& s);
     
     void read_score();
+    vector<string> sort_scores(vector<string> d,vector<int> x,vector<int> c);
 private:
 	Text title;
 	Text the_winners;
     vector<Text*> scores;
+    int scores_num;
+    int size;
+    string initials;
+    vector<int> number;
+    vector<int> temp_number;
+    vector<string> letters;
+    vector<string> temp_letters;
     ofstream ofs;
     ifstream ifs;
 	Button back_Button;

@@ -33,18 +33,48 @@ back_Button(Point(100,50),70,35,"Back",
 void high_score_window::read_score(){
     ifs.open("Score_file.txt");
     string line;
-    for (int i = 0; i<5; i++) {
-        if (ifs.is_open(), std::ios_base::app) {
-            getline(ifs,line);
-            string temp = std::to_string(i+1)+".  "+line;
-            scores.push_back(new Text(Point(275,250+(i*50)),temp));
-            scores[i]->set_font_size(50);
-            scores[i]->set_color(Color::red);
-            attach(*scores[i]);
+    if (ifs.is_open(), std::ios_base::app) {
+        while (ifs>>initials>>scores_num) {
+            number.push_back(scores_num);
+            temp_number.push_back(scores_num);
+            temp_letters.push_back(initials);
         }
+    }
+    
+    sort(temp_number.begin(),temp_number.end());
+    reverse(temp_number.begin(),temp_number.end());
+    sort_scores(temp_letters,number,temp_number);
+    if (number.size()>=5) {
+        size=5;
+    }
+    else{
+        size=number.size();
+    }
+    for (int i = 0; i<size; i++) {
+        string temp = std::to_string(i+1)+".  "+letters[i]+"   "+std::to_string(temp_number[i]);
+        scores.push_back(new Text(Point(275,250+(i*50)),temp));
+        scores[i]->set_font_size(50);
+        scores[i]->set_color(Color::red);
+        attach(*scores[i]);
     }
     ifs.close();
 }
+vector<string> high_score_window::sort_scores(vector<string> d,vector<int> x,vector<int> c){
+    for (int i = 0; i<c.size(); i++) {
+        for (int j = 0; j<c.size(); j++) {
+            if (c[i] == x[j]) {
+                cout<<d[j]<< " ";
+                letters.push_back(d[j]);
+                cout<<d[j]<<"\n";
+            }
+
+        }
+        
+    }
+    return letters;
+}
+    
+
 //takes you back to splash screen
 void high_score_window::back(){
     hide();
