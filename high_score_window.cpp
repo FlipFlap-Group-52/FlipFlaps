@@ -11,7 +11,7 @@
 high_score_window::high_score_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
 title(Point(310,50),"FlipFlaps"),
-the_winners(Point(250,150),"Top 5 Scores"),
+the_winners(Point(250,150),"Top 5 Scores!"),
 back_Button(Point(100,50),70,35,"Back",
             [](Address,Address pw){reference_to<high_score_window>(pw).back();})
 {
@@ -41,7 +41,7 @@ void high_score_window::read_score(){
         if (ifs.is_open(), std::ios_base::app) {
             getline(ifs,line);
             string temp = std::to_string(i+1)+".  "+line;
-            scores.push_back(new Text(Point(275,200+(i*50)),temp));
+            scores.push_back(new Text(Point(275,250+(i*50)),temp));
             scores[i]->set_font_size(50);
             scores[i]->set_color(Color::red);
             attach(*scores[i]);
