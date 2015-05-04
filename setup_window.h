@@ -21,15 +21,17 @@ public:
     Setup_window(Point xy, int w,int h, const string& s);
    
 private:
+//menu for diff. options
     Menu diff;
     Text title;
-	Text word;
-	Text* enter_initials;
+    Text word;
+    Text* enter_initials;
     In_box initials;
     Button start;
     Button contin;
     int difficulty;
     string player;
+//difficulty choice
     void diff2();
     void diff3();
     void diff4();
@@ -38,6 +40,7 @@ private:
     void diff7();
     void diff8();
     void diff9();
+//buttons
     void start_button();
     void player_initials();
     void continue_button();
