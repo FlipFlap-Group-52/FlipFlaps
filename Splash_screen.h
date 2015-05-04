@@ -18,7 +18,7 @@ using namespace Graph_lib;
 class Splash_screen : public Graph_lib::Window{
 public:
     Splash_screen(Point xy, int w, int h, const string& s);
-    
+    //Creates what will be placed on the screen.
 private:
     Button play_button;
     Button score_button;

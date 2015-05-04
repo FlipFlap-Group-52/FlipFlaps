@@ -17,7 +17,7 @@ using namespace Graph_lib;
 class instructions : public Graph_lib::Window{
 public:
     instructions(Point xy, int w, int h, const string& s);
-	
+	//what is used in instructions.cpp
 	private:
 	Text Instruct;
 	Text Long1;

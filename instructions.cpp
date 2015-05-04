@@ -6,8 +6,10 @@
 //
 
 #include "instructions.h"
+//Creates window
 instructions::instructions(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
+//Creates what will be on the screen and where it will be placed
 Instruct(Point(340,150), "Instructions:"),
 Long1(Point(100,215),"The purpose of this game is to get all the pancakes to be in order from smallest to biggest."),
 Long2(Point(250,245),"You do this by flipping the pancakes."),
@@ -18,9 +20,11 @@ Controls(Point(100, 450), "Use the up and down arrows to get to the pancake you 
 Back_box(Point(340,500),90,30),
 Back_text(Point(365,520),"BACK"),
 behind(Point(0,0),"pancake1.jpg"),
+//Lambda expression for the back button
 back_Button(Point(340,500),90,30,"Back",
             [](Address,Address pw){reference_to<instructions>(pw).back();})
 {
+	//Attaches things to the screen 
 	attach(behind);
 	Control_Title.set_font_size(20);
 	Instruct.set_font_size(20);
@@ -35,7 +39,7 @@ back_Button(Point(340,500),90,30,"Back",
 	attach(Back_text);
     attach(back_Button);
 }
-
+//What is called when the back button is pressed
 void instructions::back(){
     hide();
     Splash_screen win(Point(100,0),800,675,"Splash Screen");
