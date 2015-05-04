@@ -73,7 +73,7 @@ void Game_window::set_difficulty(int x){
 void Game_window::set_initials(string s){
     initials = s;
 }
-
+//creates pancake
 void Game_window::create_pancake(int x){
     int height = 570;
     perm = perm_pancake(x);
@@ -90,19 +90,21 @@ vector<int> Game_window::perm_pancake(int x){
         dummy.push_back(i);
         sorted.push_back(i);
     }
+    //used to randomize shuffle
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     shuffle(dummy.begin(),dummy.end(),default_random_engine(seed));
     reverse(sorted.begin(),sorted.end());
     
     return dummy;
 }
-
+//displays pancakes
 void Game_window::disp_pancake(){
     for (int j=0; j<pancakes.size(); ++j) {
         pancakes[j]->set_fill_color(fl_rgb_color(222,184,135));
         attach(*pancakes[j]);
     }
 }
+//handle to allow movement by arrowkeys
 int Game_window::handle(int e) {
     switch(e)
     {
@@ -153,7 +155,7 @@ int Game_window::handle(int e) {
     }
     return Fl_Window::handle(e);
 }
-
+//used to move spatula based on key press
 void Game_window::move_spatula(int movement){
     spatula_height = spatula_height + movement;
     create_spatula();
@@ -169,7 +171,7 @@ void Game_window::create_spatula(){
     spatula->set_style(Line_style(Line_style::solid, 5));
     attach(*spatula);
 }
-
+//flips pancake position by pointers
 void Game_window::flip(int pos){
     flip_count = flip_count +1;
     solution_score();
@@ -185,7 +187,7 @@ void Game_window::flip(int pos){
     }
     disp_pancake();
 }
-
+//finds solution
 void Game_window::solution(){
     reverse(perm.begin(),perm.end());
     solution_vec = find_solution(perm);
@@ -196,7 +198,7 @@ void Game_window::solution(){
     }
     reverse(perm.begin(),perm.end());
 }
-
+//calculates score
 void Game_window::solution_score(){
     if (flip_count <= solution_num) {
         scoring = 100 * difficulty;
@@ -212,7 +214,7 @@ void Game_window::solution_score(){
     attach(*score_out);
     
 }
-
+//Flip callback
 void Game_window::Flip(){
     flip(spatula_level);
     //Text object used to display flip number

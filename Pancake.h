@@ -13,6 +13,7 @@
 #include "Graph.h"
 #include "std_lib_facilities_4.h"
 using namespace Graph_lib;
+// pancake class
 class Pancake :public Rectangle{
 public:
     Pancake(Point xy,int w,int h);
