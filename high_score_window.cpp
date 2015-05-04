@@ -7,6 +7,7 @@
 //
 
 #include "high_score_window.h"
+//initializing the window, texts and button
 
 high_score_window::high_score_window(Point xy,int w,int h,const string& s)
 :Window(xy,w,h,s),
@@ -15,6 +16,7 @@ the_winners(Point(250,150),"Top 5 Scores!"),
 back_Button(Point(100,50),70,35,"Back",
             [](Address,Address pw){reference_to<high_score_window>(pw).back();})
 {
+//Attachments to window
 
     title.set_font_size(50);
     the_winners.set_font_size(50);
@@ -24,15 +26,9 @@ back_Button(Point(100,50),70,35,"Back",
     attach(the_winners);
 	attach(back_Button);
     read_score();
-/*
-vector<int>scores;
-int high_score;
-scores.push_back(high_score);
-{
-	sort(scores);
+
 }
-*/
-}
+//printing out scores onto window
 
 void high_score_window::read_score(){
     ifs.open("Score_file.txt");
@@ -49,6 +45,7 @@ void high_score_window::read_score(){
     }
     ifs.close();
 }
+//takes you back to splash screen
 void high_score_window::back(){
     hide();
     Splash_screen win(Point(100,0),800,675,"Splash Screen");
