@@ -63,9 +63,7 @@ vector<string> high_score_window::sort_scores(vector<string> d,vector<int> x,vec
     for (int i = 0; i<c.size(); i++) {
         for (int j = 0; j<c.size(); j++) {
             if (c[i] == x[j]) {
-                cout<<d[j]<< " ";
                 letters.push_back(d[j]);
-                cout<<d[j]<<"\n";
             }
 
         }
